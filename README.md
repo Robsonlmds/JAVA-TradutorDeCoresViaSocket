@@ -1,12 +1,15 @@
 # Tradutor de Cores via Socket
 
-Este projeto implementa um sistema de tradução de palavras relacionadas a cores utilizando comunicação de rede através de sockets.
+## Estrutura do Código:
 
-## Classes
+### Classes:
 
-- **Servidor:** Escuta conexões de clientes e realiza a tradução de palavras em inglês para português.
-- **Cliente:** Conecta ao servidor, envia palavras para tradução e exibe as respostas recebidas.
+- **Client:** Estabelece uma conexão com o servidor, envia uma solicitação de tradução e imprime a resposta.
+- **Attendant:** Thread responsável por gerenciar a comunicação com o cliente, recebendo a palavra a ser traduzida e enviando a resposta.
+- **Server:** Escuta na porta especificada, aceita conexões de clientes e delega a comunicação a instâncias da classe Attendant.
 
-## Funcionamento
+## Técnicas Utilizadas:
 
-O aplicativo principal inicializa o servidor e permite que múltiplos clientes se conectem, enviando palavras para tradução e recebendo as respostas em tempo real. A lógica de comunicação é tratada através de sockets, garantindo a troca de mensagens eficiente e o tratamento de erros.
+- **Sockets:** Implementação de comunicação de rede via TCP utilizando Socket e ServerSocket.
+- **Threads:** Uso de threads para gerenciar múltiplas conexões simultâneas com clientes, permitindo que o servidor atenda várias solicitações.
+- **Mapas:** Utilização de HashMap para armazenar pares de tradução (inglês-português) de forma eficiente.
